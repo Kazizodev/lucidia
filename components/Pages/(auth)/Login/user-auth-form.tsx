@@ -1,13 +1,11 @@
 "use client"
-import * as z from "zod"
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { useForm } from "react-hook-form"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/ui/icons"
 import { Button } from "@/components/ui/button"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { z, useForm, zodResolver } from "@/lib/zod"
 import { userAuthSchema } from "@/lib/validation/auth"
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -48,6 +46,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              className={errors?.email && "border-destructive"}
               {...register("email")}
             />
             {errors?.email && <p className="px-1 text-xs text-red-600">{errors.email.message}</p>}
@@ -64,6 +63,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="password"
               autoCorrect="off"
               disabled={isLoading}
+              className={errors?.password && "border-destructive"}
               {...register("password")}
             />
             {errors?.password && <p className="px-1 text-xs text-red-600">{errors.password.message}</p>}
