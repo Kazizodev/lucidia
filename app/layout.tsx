@@ -1,7 +1,8 @@
 import "@/styles/globals.css"
 import { Inter } from "next/font/google"
-import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 import { siteConfig } from "@/config/site"
+import { Toaster } from "@/components/ui/toaster"
+import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         {children}
         <TailwindIndicator />
+        <Toaster />
       </body>
     </html>
   )

@@ -6,5 +6,10 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  return <main className="flex flex-col items-center justify-between p-24">Hello</main>
+  return (
+    <main>
+      <div className="container">
+      </div>
+    </main>
+  )
 }
