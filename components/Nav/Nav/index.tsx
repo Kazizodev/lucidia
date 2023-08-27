@@ -24,7 +24,7 @@ const Navigation = () => {
                     <NavMenu />
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-1">
                     <div className="space-x-1">
                         <ToggleButton />
 

@@ -3,8 +3,8 @@ import { ShoppingBag } from 'lucide-react'
 
 const HeroSection = () => {
     return (
-        <section>
-            <div className="p-4 sm:p-6 lg:p-8 rounded-lg overflow-hidden">
+        <section className='py-4 sm:py-6 lg:py-8'>
+            <div className="rounded-lg overflow-hidden">
                 <div
                     style={{
                         backgroundImage: `url("https://rocketagency.com.au/wp-content/uploads/2022/05/ROCKET-eBook-The-Australian-eCommerce-Marketing2022-Cover-and-ads_Feature-scaled.jpg")`,
