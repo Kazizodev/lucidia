@@ -4,7 +4,7 @@ import React from "react"
 
 const CompanyLogo = ({ fluid }: { fluid?: boolean }) => {
   return (
-    <Link href={"/"} className={cn("relative z-50 flex items-center text-lg font-medium", fluid && "lg:text-white")}>
+    <Link href={"/"} className={cn("relative z-50 flex items-center text-lg font-medium select-none", fluid && "lg:text-white")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
