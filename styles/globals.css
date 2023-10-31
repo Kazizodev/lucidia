@@ -79,3 +79,7 @@
 .min-h-myscreen {
   @apply min-h-[calc(100vh-80px)] mt-20
 }
+
+.h-myscreen {
+  @apply min-h-[calc(100vh-80px)] mt-20
+}
