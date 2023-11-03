@@ -1,12 +1,29 @@
+"use client"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 import { ProductModel } from "@/types/ProductModel"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import useCalculator from "@/store/calculatorStore"
+import { toast } from "@/components/ui/use-toast"
 
 interface ProductCardProps {
   data: ProductModel
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
+  // ? get zustand calculatorStore state
+  const { addproduct, productExists, removeProduct } = useCalculator()
+
+  const handleOrder = () => {
+    if (productExists(data)) {
+      removeProduct(data.id)
+      toast({ title: "❌ Product removed from order", duration: 2000 })
+    } else {
+      addproduct(data)
+      toast({ title: "👍 Product added to order", duration: 2000 })
+    }
+  }
+
   return (
     <Card className="rounded-lg border-2 outline-0 focus:ring-2 hover:ring-2 ring-primary transition-all duration-300">
       <CardContent className="pt-4">
@@ -21,12 +38,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           />
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2">
+      <CardFooter className="flex-col items-start gap-3">
         <div>
           <p className="text-semibold text-lg">{data?.name}</p>
           <p className="text-sm text-primary/80">{data?.category.name}</p>
         </div>
+
         <div className="flex items-center justify-between">${data?.price}</div>
+
+        <Button className="w-full " variant={productExists(data) ? "destructive" : "default"} onClick={handleOrder}>
+          {productExists(data) ? "Remove" : "Add"}
+        </Button>
       </CardFooter>
     </Card>
   )

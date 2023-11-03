@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import axiosApi from "@/lib/axios"
 import { ProductModel } from "@/types/ProductModel"
 import { BillboardModel } from "@/types/BillboardModel"
-import HeroSection from "@/components/Pages/(marketing)/home/hero"
-import ProductCard from "@/components/Pages/(marketing)/home/product-card"
+import HeroSection from "@/components/Pages/home/hero"
+import ProductCard from "@/components/Pages/home/product-card"
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,9 +18,17 @@ const getBillboards = async () => {
     console.log(error)
   }
 }
-const getProducts = async () => {
+const getFeaturedDrinks = async () => {
   try {
-    const res = await axiosApi.get("/products?isFeatured=true")
+    const res = await axiosApi.get("/products?isFeatured=true&categoryId=f7a2870e-e968-481d-b2b0-ffe9f8928e2c")
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+const getFeaturedChicken = async () => {
+  try {
+    const res = await axiosApi.get("/products?isFeatured=true&categoryId=22933449-ecb4-407f-9792-5abd601f78c0")
     return res.data
   } catch (error) {
     console.log(error)
@@ -28,29 +36,24 @@ const getProducts = async () => {
 }
 
 export default async function Home() {
-  const products = (await getProducts()) as ProductModel[]
   const billboards = (await getBillboards()) as BillboardModel[]
+  const featuredDrinks = (await getFeaturedDrinks()) as ProductModel[]
+  const featuredChicken = (await getFeaturedChicken()) as ProductModel[]
 
   return (
     <main className="container">
       <HeroSection billboards={billboards} />
 
       <section>
-        <h3>Featured</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 sm:py-6 lg:py-8">
-          {products.map((product, i) => (
-            <ProductCard data={product} key={i} />
-          ))}
-        </div>
         <h3>Featured Drinks</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 sm:py-6 lg:py-8">
-          {products.map((product, i) => (
+          {featuredDrinks.map((product, i) => (
             <ProductCard data={product} key={i} />
           ))}
         </div>
-        <h3>Featured Burgers</h3>
+        <h3>Featured Chicken</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 sm:py-6 lg:py-8">
-          {products.map((product, i) => (
+          {featuredChicken.map((product, i) => (
             <ProductCard data={product} key={i} />
           ))}
         </div>

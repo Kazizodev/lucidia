@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import Navbar from "@/components/Nav"
+import FooterSection from "@/components/Footer"
+import CalculatorIcon from "@/components/Nav/calculator-icon"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
@@ -44,9 +47,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ScrollArea className="h-screen z-[99]">
+        <ScrollArea className="h-screen">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <div className="min-h-myscreen relative">
+              <Navbar />
+              {children}
+              <FooterSection />
+
+              <div className="container mx-auto flex items-end justify-end">
+                <CalculatorIcon />
+              </div>
+            </div>
+
             <TailwindIndicator />
             <Toaster />
           </ThemeProvider>
