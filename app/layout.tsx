@@ -7,7 +7,7 @@ import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Navbar from "@/components/Nav"
 import FooterSection from "@/components/Footer"
-import CalculatorIcon from "@/components/Nav/calculator-icon"
+import CalculatorIcon from "@/components/Nav/exchange-button"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {

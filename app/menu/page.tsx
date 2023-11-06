@@ -1,3 +1,4 @@
+import Heading from "@/components/ui/heading"
 import axiosApi from "@/lib/axios"
 import { ProductModel } from "@/types/ProductModel"
 
@@ -12,7 +13,11 @@ const getProducts = async () => {
 
 const MenuPage = async () => {
   const products = (await getProducts()) as ProductModel[]
-  return <>Hey</>
+  return (
+    <main className="container mx-auto">
+      <Heading title="Menu" />
+    </main>
+  )
 }
 
 export default MenuPage

@@ -1,17 +1,21 @@
 "use client"
 import Image from "next/image"
+import useRate from "@/store/rateStore"
+import { cn, formatter } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { toast } from "@/components/ui/use-toast"
+import useCalculator from "@/store/calculatorStore"
 import { ProductModel } from "@/types/ProductModel"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import useCalculator from "@/store/calculatorStore"
-import { toast } from "@/components/ui/use-toast"
 
 interface ProductCardProps {
   data: ProductModel
+  rate: number
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ data, rate }) => {
   // ? get zustand calculatorStore state
+  const { exchange } = useRate()
   const { addproduct, productExists, removeProduct } = useCalculator()
 
   const handleOrder = () => {
@@ -40,11 +44,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
       </CardContent>
       <CardFooter className="flex-col items-start gap-3">
         <div>
-          <p className="text-semibold text-lg">{data?.name}</p>
-          <p className="text-sm text-primary/80">{data?.category.name}</p>
+          <p className="text-semibold text-lg">{data.name}</p>
+          <p className="text-sm text-primary/80">{data.category.name}</p>
         </div>
 
-        <div className="flex items-center justify-between">${data?.price}</div>
+        <p className={cn("flex items-center w-full", exchange && "justify-end")}>
+          {exchange ? formatter("LBP").format(parseFloat(data.price) * rate) : formatter("USD").format(parseFloat(data.price))}
+        </p>
 
         <Button className="w-full " variant={productExists(data) ? "destructive" : "default"} onClick={handleOrder}>
           {productExists(data) ? "Remove" : "Add"}

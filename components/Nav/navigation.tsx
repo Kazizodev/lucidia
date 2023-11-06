@@ -14,6 +14,9 @@ const Navigation: React.FC = () => {
       <Link href="/menu" className={cn("text-sm font-medium text-muted-foreground transition-colors hover:text-primary", pathname == "/menu" && "text-primary")}>
         Menu
       </Link>
+      <Link href="/calculator" className={cn("text-sm font-medium text-muted-foreground transition-colors hover:text-primary", pathname == "/menu" && "text-primary")}>
+        Order
+      </Link>
     </nav>
   )
 }
