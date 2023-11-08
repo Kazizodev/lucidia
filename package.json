@@ -1,11 +1,9 @@
 {
-  "name": "commerce",
+  "name": "lucidia",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Kazizo",
-    "company": "Markaz Studios",
-    "url": "https://markazstudios.com"
+    "name": "Kazizo"
   },
   "scripts": {
     "dev": "next dev",
