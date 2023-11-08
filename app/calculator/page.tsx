@@ -16,7 +16,7 @@ const CalculatorPage = async () => {
   const exchangeRate = (await getExchangeRate()) as unknown as Exchange
 
   return (
-    <main className="container mx-auto py-10 min-h-[calc(100vh-180px)]">
+    <main className="container mx-auto py-4 sm:py-6 lg:py-8 min-h-[calc(100vh-177px)]">
       <div className="flex max-md:flex-col gap-x-10">
         <section className="flex-[2] pb-7">
           <Orders />

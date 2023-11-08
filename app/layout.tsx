@@ -1,13 +1,13 @@
 import "@/styles/globals.css"
+import Navbar from "@/components/Nav"
 import { Inter } from "next/font/google"
 import { siteConfig } from "@/config/site"
-import { Toaster } from "@/components/ui/toaster"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import Navbar from "@/components/Nav"
 import FooterSection from "@/components/Footer"
-import CalculatorIcon from "@/components/Nav/exchange-button"
+import { Toaster } from "@/components/ui/toaster"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { ThemeProvider } from "@/components/theme-provider"
+import ExhcnageButton from "@/components/Nav/exchange-button"
+import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <FooterSection />
 
               <div className="container mx-auto flex items-end justify-end">
-                <CalculatorIcon />
+                <ExhcnageButton />
               </div>
             </div>
 

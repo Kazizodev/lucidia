@@ -83,3 +83,14 @@
 .h-myscreen {
   @apply min-h-[calc(100vh-80px)] mt-20
 }
+
+body, * {
+  scroll-behavior: smooth;
+}
+
+.radial-circle {
+  background-image: radial-gradient(circle closest-side, #868686 99%, transparent 100%);
+  background-position-x: 50%;
+  background-position-y: 100%;
+  background-size: 5px 2px;
+}
