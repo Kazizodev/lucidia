@@ -27,7 +27,7 @@ const Item = ({ name, description, price, image, rate }: Props) => {
           height={500}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`mt-[0.30rem] mr-2 rounded-lg transition-all select-none object-cover ${full ? "w-full h-[350px]" : "w-[50px] h-[50px]"}`}
-          alt="image"
+          alt={name}
         />
         <div className="flex flex-col w-full">
           <div className="flex align-end">

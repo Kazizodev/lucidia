@@ -39,20 +39,26 @@ const MenuPage = async () => {
   })
 
   return (
-    <div>
-      <section className="container mx-auto grid grid-flow-col rounded py-5 sticky top-20">
-        {categories.map((category, i) => (
-          <div key={i}>
-            <Link href={`/menu#${category.name.toLowerCase()}`} key={i} className="font-semibold text-center uppercase">
-              {category.name}
-            </Link>
-          </div>
-        ))}
-      </section>
-      <Separator />
+    <>
+      <div className="sticky top-20 bg-background z-[99]">
+        <section className="container mx-auto grid grid-flow-col rounded py-5">
+          {categories.map((category, i) => (
+            <div key={i} className="flex items-center justify-center">
+              <Link
+                href={`/menu#${category.name.toLowerCase()}`}
+                key={i}
+                className="font-semibold text-muted-foreground hover:text-foreground text-center uppercase transition-colors"
+              >
+                {category.name}
+              </Link>
+            </div>
+          ))}
+        </section>
+        <Separator />
+      </div>
 
       <main className="container mx-auto py-4 sm:py-6 lg:py-8">
-        <div className="flex justify-between flex-wrap my-4">
+        <div className="flex justify-between flex-wrap">
           {categories.map(
             (category) =>
               productsByCategory[category.id] && (
@@ -77,7 +83,7 @@ const MenuPage = async () => {
           )}
         </div>
       </main>
-    </div>
+    </>
   )
 }
 
