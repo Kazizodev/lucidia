@@ -18,7 +18,7 @@ const getBillboards = async () => {
 }
 const getFeaturedAppetizers = async () => {
   try {
-    const res = await fetchData("/products?isFeatured=true&categoryId=4c03394b-8edd-4b3e-b561-e11633a87529", { next: { revalidate: 10 } })
+    const res = await fetchData("/products?isFeatured=true&categoryId=89516ce4-dd88-4fac-91d8-890b3e4fe373", { next: { revalidate: 10 } })
     return res
   } catch (error) {
     console.log(error)
@@ -26,7 +26,7 @@ const getFeaturedAppetizers = async () => {
 }
 const getFeaturedSalad = async () => {
   try {
-    const res = await fetchData("/products?isFeatured=true&categoryId=477fb288-1de4-4895-9aa2-9b6accd877e2", { next: { revalidate: 10 } })
+    const res = await fetchData("/products?isFeatured=true&categoryId=dba4d4a9-c51c-4e13-93da-038f7c51e4ae", { next: { revalidate: 10 } })
     return res
   } catch (error) {
     console.log(error)

@@ -86,6 +86,7 @@
 
 body, * {
   scroll-behavior: smooth;
+  scroll-padding-top: 150px;
 }
 
 .radial-circle {

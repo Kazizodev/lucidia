@@ -1,10 +1,9 @@
-import Link from "next/link"
 import axiosApi from "@/lib/axios"
 import { Exchange } from "@/types/Exchange"
 import Item from "@/components/Pages/menu/item"
 import { ProductModel } from "@/types/ProductModel"
 import { CategoryModel } from "@/types/CategoryModel"
-import { Separator } from "@/components/ui/separator"
+import CategoriesNav from "@/components/Pages/menu/categories"
 
 const getProducts = async () => {
   try {
@@ -40,22 +39,7 @@ const MenuPage = async () => {
 
   return (
     <>
-      <div className="sticky top-20 bg-background z-[99]">
-        <section className="container mx-auto grid grid-flow-col rounded py-5">
-          {categories.map((category, i) => (
-            <div key={i} className="flex items-center justify-center">
-              <Link
-                href={`/menu#${category.name.toLowerCase()}`}
-                key={i}
-                className="font-semibold text-muted-foreground hover:text-foreground text-center uppercase transition-colors"
-              >
-                {category.name}
-              </Link>
-            </div>
-          ))}
-        </section>
-        <Separator />
-      </div>
+      <CategoriesNav categories={categories} />
 
       <main className="container mx-auto py-4 sm:py-6 lg:py-8">
         <div className="flex justify-between flex-wrap">
@@ -63,7 +47,7 @@ const MenuPage = async () => {
             (category) =>
               productsByCategory[category.id] && (
                 <div key={category.id} className="py-4 w-full">
-                  <h2 id={category.name.toLowerCase()} className="text-3xl text-center font-bold pb-2">
+                  <h2 id={category.name.toLowerCase()} className="lg:text-3xl text-2xl text-center font-bold pb-2">
                     {category.name}
                   </h2>
                   <div className="flex justify-between flex-wrap my-4">

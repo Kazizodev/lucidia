@@ -5,7 +5,7 @@ const HeroSection = ({ billboards }: { billboards: BillboardModel[] }) => {
   else
     return (
       <section className="py-4 sm:py-6 lg:py-8">
-        <div className="rounded-lg overflow-hidden">
+        <div className="rounded-lg overflow-hidden shadow-xl">
           <div
             style={{ backgroundImage: `url(${billboards[0].imageUrl})` }}
             className="rounded-lg relative aspect-square bg-foreground/5 md:aspect-[2.4/1] overflow-hidden bg-cover dark:opacity-80"
